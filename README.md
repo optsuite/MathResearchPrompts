@@ -202,7 +202,7 @@ Because $H$ is a projector and $\psi_0$ is rank-one, the evolution is strictly c
 The model identified that the system's evolution is invariant under a specific 2D subspace, effectively reducing the dynamics to SU(2) rotations. We realized that this geometric confinement implies the existence of a low-dimensional algebraic structure. Consequently, we were able to derive Theorem \ref{thm: aha}, which replaces high-dimensional matrix operations with efficient, closed-form scalar recurrences ($x, y, z, q$) suitable for classical tracking.
 \subsection{Theorem Discovery}
 
-### AI-Guided Proposal of Candidate Conclusions}
+### AI-Guided Proposal of Candidate Conclusions
 
 You are a careful mathematical assistant helping with theorem discovery for a fixed dynamical setting. The assumptions and notation are fixed; the conclusions are not.
 
