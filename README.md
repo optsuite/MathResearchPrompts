@@ -1,6 +1,10 @@
 # MathResearchPrompts
 
-Prompt to the models
+This repository contains the prompts for the paper:
+- Zhijian Lai, Dong An, Jiang Hu, and Zaiwen Wen, A Grover-compatible Manifold Optimization Algorithm for Quantum Search
+
+For details on the human–AI collaboration, including the interaction protocol and verification procedures, please see:
+- Chenyi Li, Zhijian Lai, Dong An, Jiang Hu, and Zaiwen Wen, Advancing Mathematical Research via Human–AI Interactive Theorem Proving
 
 ## Conceptualizing Research Topics with AI
 ### Early-stage Exploration
