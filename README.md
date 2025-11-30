@@ -78,15 +78,15 @@ In this subsection, we document the exact prompt used to generate the AI-assiste
 > 3. cite standard results by their usual names (e.g. spectral theorem, Cauchy--Schwarz inequality) and never fabricate new references.
 >
 > Prove the following statement in a concise but fully rigorous way. In your proof, you should in particular
-> - explain carefully why $\operatorname{grad} f(U)=0$ is equivalent to $[H,\psi_U]=0$, and how this implies that $\psi_U$ is built from eigenstates of $H$ and forces $f(U)$ to take an extremal value;
-> - prove both directions of the optimality claim: that $\operatorname{grad} f(U)=0$ implies that $U$ is a global optimizer with $f(U)\in\{0,1\}$, and that any global optimizer must satisfy $\operatorname{grad} f(U)=0$.
+> - explain carefully why $\mathrm{grad} f(U)=0$ is equivalent to $[H,\psi_U]=0$, and how this implies that $\psi_U$ is built from eigenstates of $H$ and forces $f(U)$ to take an extremal value;
+> - prove both directions of the optimality claim: that $\mathrm{grad} f(U)=0$ implies that $U$ is a global optimizer with $f(U)\in\{0,1\}$, and that any global optimizer must satisfy $\mathrm{grad} f(U)=0$.
 >
 > **Theorem.**
-> Let $f(U) = \operatorname{Tr}(H U \psi_0 U^\dagger)$ on the unitary group $\mathrm{U}(N)$, and write $\psi_U := U \psi_0 U^\dagger$ for the output state of the circuit $U$. The skew-Hermitian part of the Riemannian gradient of $f$ on $\mathrm{U}(N)$ is
+> Let $f(U) = \mathrm{Tr}(H U \psi_0 U^\dagger)$ on the unitary group $\mathrm{U}(N)$, and write $\psi_U := U \psi_0 U^\dagger$ for the output state of the circuit $U$. The skew-Hermitian part of the Riemannian gradient of $f$ on $\mathrm{U}(N)$ is
 > $$
->   {\operatorname{grad}} f(U) = [H,\psi_U].
+>   {\mathrm{grad}} f(U) = [H,\psi_U].
 > $$
-> Moreover, ${\operatorname{grad}} f(U) = 0$ if and only if $U$ is a global optimizer of $f$ over $\mathrm{U}(N)$; in that case $f(U) \in \{0,1\}$, corresponding respectively to the global minimum $0$ and global maximum $1$.
+> Moreover, ${\mathrm{grad}} f(U) = 0$ if and only if $U$ is a global optimizer of $f$ over $\mathrm{U}(N)$; in that case $f(U) \in \{0,1\}$, corresponding respectively to the global minimum $0$ and global maximum $1$.
 >
 > **Output format.**
 > Return only:
@@ -401,7 +401,7 @@ $$
 $$
 with real parameters $(a_1,a_2,b_1,b_2)$ determined by real scalars $(x,y)$ via
 $$
-    A := \operatorname{atan2} (y, x), \quad
+    A := \mathrm{atan2} (y, x), \quad
     R := \sqrt{x^2+y^2},\quad
     a_1 = A+\frac{\pi}{2}, \quad
     a_2 = A-\frac{\pi}{2}, \quad
@@ -410,7 +410,7 @@ $$
 $$
 Here $H$ and $\psi_0$ are fixed Hermitian matrices, and $(x,y)$ are scalar coefficients associated with the tangent vector $\eta$ (you may assume a reasonable linear relation). The retraction at $U \in \mathrm{U}(N)$ in direction $\eta \in T_U\mathrm{U}(N)$ is defined by
 $$
-    \operatorname{Retr}_U(\eta) := \gamma(1;x_\eta,y_\eta)
+    \mathrm{Retr}_U(\eta) := \gamma(1;x_\eta,y_\eta)
 $$
 for the corresponding scalars $(x_\eta,y_\eta)$.
 
@@ -418,8 +418,8 @@ for the corresponding scalars $(x_\eta,y_\eta)$.
 Find sharp global constants $\alpha$ and $\beta$ (ideally optimal, or close to optimal) such that, for all $U \in \mathrm{U}(N)$ and all tangent vectors $\eta \in T_U\mathrm{U}(N)$ in a suitable step-size range,
 $$
 \begin{aligned}
-\|\operatorname{Retr}_U(\eta) - U\| &\le \alpha \|\eta\|, \\
-\|\operatorname{Retr}_U(\eta) - U - \eta\| &\le \beta \|\eta\|^2.
+\|\mathrm{Retr}_U(\eta) - U\| &\le \alpha \|\eta\|, \\
+\|\mathrm{Retr}_U(\eta) - U - \eta\| &\le \beta \|\eta\|^2.
 \end{aligned}
 $$
 
@@ -447,7 +447,7 @@ You are an expert in both quantum algorithms and mathematical optimization.
 
 We are analyzing the convergence of a Riemannian gradient descent algorithm with retractions on $\mathrm{U}(N)$. The objective function is:
 $$
- f(U) = \operatorname{Tr}(H U \psi_0 U^\dagger)
+ f(U) = \mathrm{Tr}(H U \psi_0 U^\dagger)
 $$
 where $H$ and $\psi_0$ are Hermitian matrices. The manifold is equipped with the canonical metric induced by the Frobenius inner product.
 
@@ -463,7 +463,7 @@ and choose a fixed step size $t_k= 1 / L_{\mathrm{Rie}}$, where
 $L_{\mathrm{Rie}}  =  2 + \frac{N}{\sqrt{2M\,(N-M)}} \in O\left(\sqrt{\frac{N}{M}}\right)$.  
 Then, for any $\varepsilon>0$,
 $$
- T \geq \left\lceil\frac{2L_{\mathrm{Rie}}}{\varepsilon^2} \right\rceil \quad \Longrightarrow \quad \min _{0 \leq k \leq T-1}\left\|\operatorname{grad} f\left (U_k\right)\right\| \leq \varepsilon.
+ T \geq \left\lceil\frac{2L_{\mathrm{Rie}}}{\varepsilon^2} \right\rceil \quad \Longrightarrow \quad \min _{0 \leq k \leq T-1}\left\|\mathrm{grad} f\left (U_k\right)\right\| \leq \varepsilon.
 $$
 
 
@@ -472,6 +472,6 @@ The result above gives a sublinear rate ($O(\varepsilon^{-2})$), which applies t
 
 I suspect that the baseline analysis is too conservative because it ignores this specific structure. Please perform a deeper theoretical analysis to see if we can improve this bound:
 
-1. **Structural Analysis:** Analyze the algebraic relationship between the norm of the Riemannian gradient, $\|\operatorname{grad} f(U)\|$, and the function value gap. Does the specific form of $f(U)$ imply a stronger geometric property than simple smoothness?
+1. **Structural Analysis:** Analyze the algebraic relationship between the norm of the Riemannian gradient, $\|\mathrm{grad} f(U)\|$, and the function value gap. Does the specific form of $f(U)$ imply a stronger geometric property than simple smoothness?
 2. **Improved Convergence:** If such a relationship exists, does it allow us to prove a faster convergence rate (e.g., linear convergence instead of sublinear) under the same algorithmic settings?
 3. **Refined Theorem:** If you find a stronger bound, please formulate a new theorem that reflects this improved rate and the corresponding iteration count $T$.
