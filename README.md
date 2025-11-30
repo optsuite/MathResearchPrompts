@@ -67,31 +67,31 @@ We have established the basic geometric objects for viewing Grover's algorithm a
 ## AI-assisted Theorem Proving 
 ### Prompts and Reply of Section 4.1
 In this subsection, we document the exact prompt used to generate the AI-assisted proof in Section 4.1. It illustrates how we guide the model toward rigorous, line-by-line reasoning rather than informal sketches. 
-> **Prompt to the model**
->
-> **Content:**
->
-> You are a careful mathematical assistant collaborating with human experts.
-> When you are asked to prove a statement, you must:
-> 1. restate all assumptions, notation, and domains of all variables;
-> 2. give a numbered, line-by-line argument in which every non-trivial inference is explicitly justified;
-> 3. cite standard results by their usual names (e.g. spectral theorem, Cauchy--Schwarz inequality) and never fabricate new references.
->
-> Prove the following statement in a concise but fully rigorous way. In your proof, you should in particular
-> - explain carefully why $\mathrm{grad} f(U)=0$ is equivalent to $[H,\psi_U]=0$, and how this implies that $\psi_U$ is built from eigenstates of $H$ and forces $f(U)$ to take an extremal value;
-> - prove both directions of the optimality claim: that $\mathrm{grad} f(U)=0$ implies that $U$ is a global optimizer with $f(U)\in\{0,1\}$, and that any global optimizer must satisfy $\mathrm{grad} f(U)=0$.
->
-> **Theorem.**
-> Let $f(U) = \mathrm{Tr}(H U \psi_0 U^\dagger)$ on the unitary group $\mathrm{U}(N)$, and write $\psi_U := U \psi_0 U^\dagger$ for the output state of the circuit $U$. The skew-Hermitian part of the Riemannian gradient of $f$ on $\mathrm{U}(N)$ is
-> $$
->   {\mathrm{grad}} f(U) = [H,\psi_U].
-> $$
-> Moreover, ${\mathrm{grad}} f(U) = 0$ if and only if $U$ is a global optimizer of $f$ over $\mathrm{U}(N)$; in that case $f(U) \in \{0,1\}$, corresponding respectively to the global minimum $0$ and global maximum $1$.
->
-> **Output format.**
-> Return only:
-> - (1) a LaTeX `proof` environment with a numbered, step-by-step derivation;
-> - (2) a short LaTeX `itemize` list of adversarial checks a reader could perform (for example: degenerate spectrum of $H$, special choices of $\psi_0$, boundary cases where $H=0$ or $H=I$, etc.).
+**Prompt to the model**
+
+ **Content:**
+
+ You are a careful mathematical assistant collaborating with human experts.
+ When you are asked to prove a statement, you must:
+ 1. restate all assumptions, notation, and domains of all variables;
+ 2. give a numbered, line-by-line argument in which every non-trivial inference is explicitly justified;
+ 3. cite standard results by their usual names (e.g. spectral theorem, Cauchy--Schwarz inequality) and never fabricate new references.
+
+ Prove the following statement in a concise but fully rigorous way. In your proof, you should in particular
+ - explain carefully why $\mathrm{grad} f(U)=0$ is equivalent to $[H,\psi_U]=0$, and how this implies that $\psi_U$ is built from eigenstates of $H$ and forces $f(U)$ to take an extremal value;
+ - prove both directions of the optimality claim: that $\mathrm{grad} f(U)=0$ implies that $U$ is a global optimizer with $f(U)\in\{0,1\}$, and that any global optimizer must satisfy $\mathrm{grad} f(U)=0$.
+
+ **Theorem.**
+ Let $f(U) = \mathrm{Tr}(H U \psi_0 U^\dagger)$ on the unitary group $\mathrm{U}(N)$, and write $\psi_U := U \psi_0 U^\dagger$ for the output state of the circuit $U$. The skew-Hermitian part of the Riemannian gradient of $f$ on $\mathrm{U}(N)$ is
+ $$
+   {\mathrm{grad}} f(U) = [H,\psi_U].
+ $$
+ Moreover, ${\mathrm{grad}} f(U) = 0$ if and only if $U$ is a global optimizer of $f$ over $\mathrm{U}(N)$; in that case $f(U) \in \{0,1\}$, corresponding respectively to the global minimum $0$ and global maximum $1$.
+
+ **Output format.**
+ Return only:
+ - (1) a LaTeX `proof` environment with a numbered, step-by-step derivation;
+ - (2) a short LaTeX `itemize` list of adversarial checks a reader could perform (for example: degenerate spectrum of $H$, special choices of $\psi_0$, boundary cases where $H=0$ or $H=I$, etc.).
 
 Do not output any text outside these two parts.
 
@@ -112,16 +112,16 @@ When reasoning about this statement, you must:
 
 **Target statement (to prove or disprove).**
 
-> **Proposition.**
-> The set of commutators of Hermitian matrices
-> $$
->     \mathcal{C}=\{[A, B]: \, A^\dagger=A,\; B^\dagger=B\}
-> $$
-> equals
-> $$
->     \{X\in M_n(\mathbb{C}): \, X^\dagger=-X,\; \mathrm{tr}\, X=0\}
->     =\mathfrak{su}(n).
-> $$
+ **Proposition.**
+ The set of commutators of Hermitian matrices
+ $$
+     \mathcal{C}=\{[A, B]: \, A^\dagger=A,\; B^\dagger=B\}
+ $$
+ equals
+ $$
+     \{X\in M_n(\mathbb{C}): \, X^\dagger=-X,\; \mathrm{tr}\, X=0\}
+     =\mathfrak{su}(n).
+ $$
 
 **Required output format.**
 Return only the following three parts, in order, all in LaTeX:
@@ -133,18 +133,18 @@ Do not output any commentary outside these three parts.
 ### Rich proofs and aha-moment
 
 The part of the model outputs that inspired us to obtain Theorem \ref{thm: aha} is as follows.
-> **Part of the reply from the model**
->
-> **The Invariant ``Jordan'' Plane (Working Subspace):**
-> Because $H$ is a projector and $\psi_0$ is rank-one, the evolution is strictly confined to the Krylov subspace $\mathcal{K} = \text{span}\{ |\psi_0\rangle, H|\psi_0\rangle \}$.
-> - *Algebraic reason:* The operators $H$ and $\psi_0$, when restricted to the subspace containing $|\psi_0\rangle$, form a closed $2\times 2$ algebra (a single Jordan block of the pair $\{H, \psi_0\}$).
-> - *Geometric intuition:* This is a great circle (a “Grover plane”) on the projective Hilbert space connecting the start state $\psi_0$ and the target state (the projection of $H$).
->
-> - *Subspace:* The state $\psi_k$ remains in the same 2D “Jordan plane” $\mathcal{K}$ as the baseline. The operators $H$ and $\psi_0$ act as $2\times 2$ matrices on this subspace (specifically, rank-1 projectors with overlap angle $\theta_0 = \arccos \sqrt{q_0}$).
-> - *Dynamics:* While the baseline flows continuously along the gradient $[H, \psi_k]$, the product ansatz $e^{i\theta H}e^{i\phi \psi_0}$ performs discrete rotations (Euler angle compositions) within the same 2D plane. It acts as a “bang-bang” control to approximate the geodesic flow.
+ **Part of the reply from the model**
+
+ **The Invariant ``Jordan'' Plane (Working Subspace):**
+ Because $H$ is a projector and $\psi_0$ is rank-one, the evolution is strictly confined to the Krylov subspace $\mathcal{K} = \text{span}\{ |\psi_0\rangle, H|\psi_0\rangle \}$.
+ - *Algebraic reason:* The operators $H$ and $\psi_0$, when restricted to the subspace containing $|\psi_0\rangle$, form a closed $2\times 2$ algebra (a single Jordan block of the pair $\{H, \psi_0\}$).
+ - *Geometric intuition:* This is a great circle (a “Grover plane”) on the projective Hilbert space connecting the start state $\psi_0$ and the target state (the projection of $H$).
+
+ - *Subspace:* The state $\psi_k$ remains in the same 2D “Jordan plane” $\mathcal{K}$ as the baseline. The operators $H$ and $\psi_0$ act as $2\times 2$ matrices on this subspace (specifically, rank-1 projectors with overlap angle $\theta_0 = \arccos \sqrt{q_0}$).
+ - *Dynamics:* While the baseline flows continuously along the gradient $[H, \psi_k]$, the product ansatz $e^{i\theta H}e^{i\phi \psi_0}$ performs discrete rotations (Euler angle compositions) within the same 2D plane. It acts as a “bang-bang” control to approximate the geodesic flow.
 
 The model identified that the system's evolution is invariant under a specific 2D subspace, effectively reducing the dynamics to SU(2) rotations. We realized that this geometric confinement implies the existence of a low-dimensional algebraic structure. Consequently, we were able to derive Theorem \ref{thm: aha}, which replaces high-dimensional matrix operations with efficient, closed-form scalar recurrences ($x, y, z, q$) suitable for classical tracking.
-\subsection{Theorem Discovery}
+
 
 ## AI-assisted Theorem Discovery
 ### AI-Guided Proposal of Candidate Conclusions
@@ -300,7 +300,7 @@ Design $\gamma(t;x,y)$ by property-constrained synthesis. Proceed as follows.
    - Prefer shorter products; include candidates of different lengths (e.g. length $5,6,7,\dots$) so that there is a chance to find the shortest viable form.
    - For each candidate, give a one- or two-sentence explanation of how the chosen ordering and parameter couplings might help satisfy (P2)-(P3).
 3. **Numerical finite-difference tests.**
-   For each candidate, use a seed set $\mathcal S\subset\mathbb R^2$, a small step size $h>0$, and a tolerance $\varepsilon>0$ to write concrete code (e.g. in Python/NumPy) that:
+   For each candidate, use a seed set $\mathcal S\subset\mathbb R^2$, a small step size $h0$, and a tolerance $\varepsilon0$ to write concrete code (e.g. in Python/NumPy) that:
    - implements $\gamma(t;x,y)$ for given $(x,y)$ and parameter values that satisfy your symbolic constraints;
    - checks (P1) syntactically;
    - checks (P2) exactly at $t=0$;
@@ -362,7 +362,7 @@ if seed_set is None:
 for (x, y) in seed_set:
     G0 = gamma_5factor(0.0, x, y, H, psi0)
     p2_err = np.linalg.norm(G0 - I, ord="fro")
-    if p2_err > 1e-12:
+    if p2_err  1e-12:
         print(f"[P2 FAIL] (x,y)=({x},{y}), ||gamma(0)-I||_F = {p2_err}")
 
 # Check (P3) via finite differences
@@ -461,7 +461,7 @@ $$
 $$
 and choose a fixed step size $t_k= 1 / L_{\mathrm{Rie}}$, where  
 $L_{\mathrm{Rie}}  =  2 + \frac{N}{\sqrt{2M\,(N-M)}} \in O\left(\sqrt{\frac{N}{M}}\right)$.  
-Then, for any $\varepsilon>0$,
+Then, for any $\varepsilon0$,
 $$
  T \geq \left\lceil\frac{2L_{\mathrm{Rie}}}{\varepsilon^2} \right\rceil \quad \Longrightarrow \quad \min _{0 \leq k \leq T-1}\left\|\mathrm{grad} f\left (U_k\right)\right\| \leq \varepsilon.
 $$
