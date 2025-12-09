@@ -83,9 +83,9 @@ In this subsection, we document the exact prompt used to generate the AI-assiste
 
  **Theorem.**
  Let $f(U) = \mathrm{Tr}(H U \psi_0 U^\dagger)$ on the unitary group $\mathrm{U}(N)$, and write $\psi_U := U \psi_0 U^\dagger$ for the output state of the circuit $U$. The skew-Hermitian part of the Riemannian gradient of $f$ on $\mathrm{U}(N)$ is
- \[
+ \(
    {\mathrm{grad}} f(U) = [H,\psi_U].
- \]
+ \)
  Moreover, ${\mathrm{grad}} f(U) = 0$ if and only if $U$ is a global optimizer of $f$ over $\mathrm{U}(N)$; in that case $f(U) \in \{0,1\}$, corresponding respectively to the global minimum $0$ and global maximum $1$.
 
  **Output format.**
