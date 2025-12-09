@@ -67,6 +67,7 @@ We have established the basic geometric objects for viewing Grover's algorithm a
 ## AI-assisted Theorem Proving 
 ### Prompts and Reply of Section 4.1
 In this subsection, we document the exact prompt used to generate the AI-assisted proof in Section 4.1. It illustrates how we guide the model toward rigorous, line-by-line reasoning rather than informal sketches. 
+
 **Prompt to the model**
 
  **Content:**
