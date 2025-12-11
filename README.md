@@ -8,9 +8,9 @@ For details on the human–AI collaboration protocol and verification procedures
 
 To reproduce the interactions, please copy the relevant text blocks from the source of README.md.
 
-## Figures
+# Figures
 
-The four cartoons below were drawn by nano banana based on our paper.
+The four cartoons below are drawn by nano banana based on our paper.
 
 ![Figure 1](fig/1.png)  
 (Fig. 1: Nobita is overwhelmed by quantum computing and optimization theory until Doraemon introduces an “AI helper” that turns the Grover and manifold puzzle into a clear research roadmap.)
@@ -23,6 +23,8 @@ The four cartoons below were drawn by nano banana based on our paper.
 
 ![Figure 4](fig/4.png)  
 (Fig. 4: After completing the derivations and verification, the paper concludes, and the human–AI team celebrates achieving global optimality and convergence guarantees.)
+
+# Prompts 
 
 ## Conceptualizing Research Topics with AI
 
