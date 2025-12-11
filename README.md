@@ -10,7 +10,7 @@ To reproduce the interactions, please copy the relevant text blocks from the sou
 
 ## Figures
 
-These comics by nano banana tell, in a light tone, the Grover + manifold optimization thread that runs through this README:
+The four cartoons below were drawn by nano banana based on our paper.
 
 ![Figure 1](fig/1.png)  
 (Fig. 1: Nobita is overwhelmed by quantum computing and optimization theory until Doraemon introduces an “AI helper” that turns the Grover and manifold puzzle into a clear research roadmap.)
