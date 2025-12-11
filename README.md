@@ -8,6 +8,22 @@ For details on the human–AI collaboration protocol and verification procedures
 
 To reproduce the interactions, please copy the relevant text blocks from the source of README.md.
 
+## Figures
+
+These comics by nano banana tell, in a light tone, the Grover + manifold optimization thread that runs through this README:
+
+![Figure 1](fig/1.png)  
+(Fig. 1: Nobita is overwhelmed by quantum computing and optimization theory until Doraemon introduces an “AI helper” that turns the Grover and manifold puzzle into a clear research roadmap.)
+
+![Figure 2](fig/2.png)  
+(Fig. 2: The "AI-helper" designs a scheme under the constraints (P1) product form, (P2) identity at t = 0, and (P3) correct initial velocity, ultimately producing the five-factor retraction.)
+
+![Figure 3](fig/3.png)  
+(Fig. 3: The human–AI loop performs numerical experiment, discarding candidates that fail basic checks and keeping only structures that can support the proof.)
+
+![Figure 4](fig/4.png)  
+(Fig. 4: After completing the derivations and verification, the paper concludes, and the human–AI team celebrates achieving global optimality and convergence guarantees.)
+
 ## Conceptualizing Research Topics with AI
 
 ### Early-stage Exploration
@@ -84,9 +100,11 @@ In this subsection, we document the exact prompt used to generate the AI-assiste
 
  **Theorem.**
  Let $f(U) = \mathrm{Tr}(H U \psi_0 U^\dagger)$ on the unitary group $\mathrm{U}(N)$, and write $\psi_U := U \psi_0 U^\dagger$ for the output state of the circuit $U$. The skew-Hermitian part of the Riemannian gradient of $f$ on $\mathrm{U}(N)$ is
+ 
  $$
    {\mathrm{grad}} f(U) = [H,\psi_U].
  $$
+
  Moreover, ${\mathrm{grad}} f(U) = 0$ if and only if $U$ is a global optimizer of $f$ over $\mathrm{U}(N)$; in that case $f(U) \in \{0,1\}$, corresponding respectively to the global minimum $0$ and global maximum $1$.
 
  **Output format.**
@@ -115,10 +133,13 @@ When reasoning about this statement, you must:
 
  **Proposition.**
  The set of commutators of Hermitian matrices
+ 
  $$
      \mathcal{C}=\{[A, B]: \, A^\dagger=A,\; B^\dagger=B\}
+ 
  $$
  equals
+ 
  $$
      \{X\in M_n(\mathbb{C}): \, X^\dagger=-X,\; \mathrm{tr}\, X=0\}
      =\mathfrak{su}(n).
