@@ -12,17 +12,30 @@ To reproduce the interactions, please copy the relevant text blocks from the sou
 
 The four cartoons below are drawn by nano banana based on our paper.
 
-![Figure 1](fig/1.png)  
-(Fig. 1: Nobita is overwhelmed by quantum computing and optimization theory until Doraemon introduces an “AI helper” that turns the Grover and manifold puzzle into a clear research roadmap.)
+<p align="center">
+  <img src="fig/1.png" width="420">
+  <br>
+  <em>Fig. 1: Nobita is overwhelmed by quantum computing and optimization theory until Doraemon introduces an “AI helper” that turns the Grover and manifold puzzle into a clear research roadmap.</em>
+</p>
 
-![Figure 2](fig/2.png)  
-(Fig. 2: The "AI-helper" designs a scheme under the constraints (P1) product form, (P2) identity at t = 0, and (P3) correct initial velocity, ultimately producing the five-factor retraction.)
+<p align="center">
+  <img src="fig/2.png" width="420">
+  <br>
+  <em>Fig. 2: The "AI-helper" designs a scheme under the constraints (P1) product form, (P2) identity at t = 0, and (P3) correct initial velocity, ultimately producing the five-factor retraction.</em>
+</p>
 
-![Figure 3](fig/3.png)  
-(Fig. 3: The human–AI loop performs numerical experiment, discarding candidates that fail basic checks and keeping only structures that can support the proof.)
+<p align="center">
+  <img src="fig/3.png" width="420">
+  <br>
+  <em>Fig. 3: The human–AI loop performs numerical experiment, discarding candidates that fail basic checks and keeping only structures that can support the proof.</em>
+</p>
 
-![Figure 4](fig/4.png)  
-(Fig. 4: After completing the derivations and verification, the paper concludes, and the human–AI team celebrates achieving global optimality and convergence guarantees.)
+<p align="center">
+  <img src="fig/4.png" width="420">
+  <br>
+  <em>Fig. 4: After completing the derivations and verification, the paper concludes, and the human–AI team celebrates achieving global optimality and convergence guarantees.</em>
+</p>
+
 
 # Prompts 
 
