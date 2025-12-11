@@ -151,13 +151,13 @@ When reasoning about this statement, you must:
  The set of commutators of Hermitian matrices
  
  $$
-     \mathcal{C}=\{[A, B]: \, A^\dagger=A,\; B^\dagger=B\}
+     \mathcal{C}=\left\{[A, B]: A^\dagger=A,B^\dagger=B\right\}
  $$
 
  equals
  
  $$
-     \{X\in M_n(\mathbb{C}): \, X^\dagger=-X,\; \mathrm{tr}\, X=0\}
+     \left\{X\in M_n(\mathbb{C}):  X^\dagger=-X,\mathrm{tr} X=0\right\}
      =\mathfrak{su}(n).
  $$
 
@@ -170,7 +170,7 @@ Do not output any commentary outside these three parts.
 
 ### Rich proofs and aha-moment
 
-The part of the model outputs that inspired us to obtain Theorem \ref{thm: aha} is as follows.
+The part of the model outputs that inspired us to obtain the target theorem is as follows.
  **Part of the reply from the model**
 
  **The Invariant ``Jordan'' Plane (Working Subspace):**
@@ -247,7 +247,7 @@ theorem discovery and **cross-setting transfer**.
 
 Treat the setting below as one instance of a more general pattern rather than as an isolated calculation. Your goals are extract a reusable schema that can be instantiated in nearby settings and apply it on a similar setting.
 
-\medskip
+
 
 **Baseline target.**
 Let $H=H^\dagger=H^2$ be a projector, $\psi_0$ a rank-one projector, and
@@ -266,8 +266,8 @@ $$
 $$
 
 In this setting, we have derived that the following properties hold
-- (i) the gradient–norm identity $\|[H,\psi_k]\|_F=\sqrt{2}\,\gamma_k$;
-- (ii) the state $|\psi_k\rangle$ remains in the real two-dimensional Grover plane spanned by $\{|\psi_0\rangle,\, H|\psi_0\rangle\}$;
+- (i) the gradient–norm identity $\|[H,\psi_k]\|_F=\sqrt{2}\gamma_k$;
+- (ii) the state $|\psi_k\rangle$ remains in the real two-dimensional Grover plane spanned by $\{|\psi_0\rangle, H|\psi_0\rangle\}$;
 - (iii) the quantity $q_{k+1}$ has a closed-form recursion obtained by viewing the update as a rotation on this plane;
 - (iv) there exists a positive one-shot step
   
@@ -276,8 +276,6 @@ In this setting, we have derived that the following properties hold
   $$
 
   such that $e^{t_0^*[H,\psi_0]}|\psi_0\rangle=|\psi^*\rangle$ and $\max L(U)=1$ is attained in a single update.
-
-\medskip
 
 **Instructions.**
 Organize your answer into three sections.
@@ -315,7 +313,7 @@ The goal is to construct a short product retraction $\gamma(t;x,y)$ that satisfi
 a fixed list of properties; the admissible building blocks and the target
 properties are given, but the concrete product form is not.
 
-\medskip
+
 
 **Setting.**
 Let $H=H^\dagger=H^2$ be a projector and let $\psi_0$ be a rank-one projector.
@@ -338,11 +336,11 @@ following properties:
 - (P2) $\gamma(0;x,y)=I$ for all $(x,y)$;
 - (P3) the initial velocity matches the target: for any $Z=xX_0+yY_0\in\mathcal W$,
 
-  $$
-    \gamma'(0;x,y) = Z.
-  $$
+$$
+  \gamma'(0;x,y) = Z.
+$$
 
-\medskip
+
 
 **Task.**
 Design $\gamma(t;x,y)$ by property-constrained synthesis. Proceed as follows.
@@ -457,7 +455,7 @@ equipped with the canonical Riemannian metric induced by the Frobenius inner pro
 We use the following length-5 product retraction (satisfying (P1)-(P3)):
 
 $$
-  \gamma(t;x,y)= e^{i a_1 H}\, e^{i t b_1 \psi_0}\, e^{i (a_2-a_1) H}\, e^{i t b_2 \psi_0}\, e^{-i a_2 H},
+  \gamma(t;x,y)= e^{i a_1 H} e^{i t b_1 \psi_0} e^{i (a_2-a_1) H} e^{i t b_2 \psi_0} e^{-i a_2 H},
 $$
 
 with real parameters $(a_1,a_2,b_1,b_2)$ determined by real scalars $(x,y)$ via
@@ -526,11 +524,11 @@ We have successfully established a "worst-case" complexity bound based on the st
 Suppose we run with the 5-factor retraction $\mathrm{R}_U$ defined by
 
 $$
-  \mathrm{R}^{(5)}_U (\eta): =e^{i a_1 H} e^{i b_1 \psi_0} e^{i\left (a_2-a_1\right) H} e^{i b_2 \psi_0} e^{-i a_2 H} \, U,
+  \mathrm{R}^{(5)}_U (\eta): =e^{i a_1 H} e^{i b_1 \psi_0} e^{i\left (a_2-a_1\right) H} e^{i b_2 \psi_0} e^{-i a_2 H}  U,
 $$
 
 and choose a fixed step size $t_k= 1 / L_{\mathrm{Rie}}$, where  
-$L_{\mathrm{Rie}}  =  2 + \frac{N}{\sqrt{2M\,(N-M)}} \in O\left(\sqrt{\frac{N}{M}}\right)$.  
+$L_{\mathrm{Rie}}  =  2 + \frac{N}{\sqrt{2M(N-M)}} \in O\left(\sqrt{\frac{N}{M}}\right)$.  
 Then, for any $\varepsilon0$,
 
 $$
