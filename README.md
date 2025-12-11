@@ -151,13 +151,13 @@ When reasoning about this statement, you must:
  The set of commutators of Hermitian matrices
  
  $$
-     \mathcal{C}=\left\{[A, B]: A^\dagger=A,B^\dagger=B\right\}
+     \mathcal{C}=\{[A, B]: A^\dagger=A,B^\dagger=B\}
  $$
 
  equals
  
  $$
-     \left\{X\in M_n(\mathbb{C}):  X^\dagger=-X,\mathrm{tr} X=0\right\}
+     \{X\in M_n(\mathbb{C}):  X^\dagger=-X,\mathrm{tr} X=0\}
      =\mathfrak{su}(n).
  $$
 
@@ -275,7 +275,7 @@ In this setting, we have derived that the following properties hold
   t_0^*=\frac{\arccos\sqrt{q_0}}{\gamma_0},
   $$
 
-  such that $e^{t_0^*[H,\psi_0]}|\psi_0\rangle=|\psi^*\rangle$ and $\max L(U)=1$ is attained in a single update.
+  such that $e^{t_0^* [H,\psi_0]} |\psi_0\rangle = |\psi^*\rangle$ and $\max L(U)=1$ is attained in a single update.
 
 **Instructions.**
 Organize your answer into three sections.
@@ -292,7 +292,7 @@ Organize your answer into three sections.
 
    $$
      q_k:=\langle\psi_k|H|\psi_k\rangle\in[0,1],\quad
-     \tau_k:=\sqrt{q_k(1-q_k)}\in\Bigl[0,\tfrac12\Bigr],\quad
+     \tau_k:=\sqrt{q_k(1-q_k)}\in\Bigl[0,\frac{1}{2}\Bigr],\quad
      X_0:=[H,\psi_0],\quad Y_0:=i[H,X_0].
    $$
 
@@ -360,7 +360,7 @@ Design $\gamma(t;x,y)$ by property-constrained synthesis. Proceed as follows.
    - checks (P3) numerically on the seed set $\mathcal S$ via the finite-difference test
   
      $$
-       \left\|\frac{\gamma(h;x,y)-I}{h}-(xX_0+yY_0)\right\|_F
+       \|\frac{\gamma(h;x,y)-I}{h}-(xX_0+yY_0)\|_F
        \le \varepsilon,
      $$
 
