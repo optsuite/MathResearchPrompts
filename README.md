@@ -36,6 +36,7 @@ The four cartoons below are drawn by nano banana based on our paper.
   <em>Fig. 4: After completing the derivations and verification, the paper concludes, and the human–AI team celebrates achieving global optimality and convergence guarantees.</em>
 </p>
 
+Acknowledgment. We thank Zichen Wang for helpful suggestions on this comics section.
 
 # Prompts 
 
