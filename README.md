@@ -151,8 +151,8 @@ When reasoning about this statement, you must:
  
  $$
      \mathcal{C}=\{[A, B]: \, A^\dagger=A,\; B^\dagger=B\}
- 
  $$
+
  equals
  
  $$
@@ -191,18 +191,23 @@ You are a careful mathematical assistant helping with theorem discovery for a fi
 **Setting.**
 Let $H = H^\dagger = H^2$ be a projector on a finite-dimensional Hilbert space.
 Let $U_k \in \mathrm{U}(N)$ and define the pure state
+
 $$
   \psi_k = |\psi_k\rangle\langle\psi_k| := U_k \psi_0 U_k^\dagger,
 $$
+
 where $\psi_0$ is a fixed rank-one projector. Set
+
 $$
   q_k := \langle \psi_k | H | \psi_k \rangle \in [0,1],
   \qquad
   \gamma_k := \sqrt{q_k(1-q_k)}.
 $$
+
 We study the following update rules for $U_{k+1}$ and $\psi_{k+1}$.
 
 **Exact exponential step (“Exp update”):**
+
 $$
   V_k = \exp\bigl(t_k[H,\psi_k]\bigr),
   \qquad
@@ -245,24 +250,30 @@ Treat the setting below as one instance of a more general pattern rather than as
 
 **Baseline target.**
 Let $H=H^\dagger=H^2$ be a projector, $\psi_0$ a rank-one projector, and
+
 $$
   V_k = \exp \bigl(t_k[H,\psi_k]\bigr),\qquad
   U_{k+1}=V_kU_k,\qquad
   \psi_{k+1}=U_{k+1}\psi_0U_{k+1}^\dagger,
 $$
+
 with
+
 $$
   q_k=\langle\psi_k|H|\psi_k\rangle,\qquad
   \gamma_k=\sqrt{q_k(1-q_k)}.
 $$
+
 In this setting, we have derived that the following properties hold
 - (i) the gradient–norm identity $\|[H,\psi_k]\|_F=\sqrt{2}\,\gamma_k$;
 - (ii) the state $|\psi_k\rangle$ remains in the real two-dimensional Grover plane spanned by $\{|\psi_0\rangle,\, H|\psi_0\rangle\}$;
 - (iii) the quantity $q_{k+1}$ has a closed-form recursion obtained by viewing the update as a rotation on this plane;
 - (iv) there exists a positive one-shot step
+  
   $$
   t_0^*=\frac{\arccos\sqrt{q_0}}{\gamma_0},
   $$
+
   such that $e^{t_0^*[H,\psi_0]}|\psi_0\rangle=|\psi^*\rangle$ and $\max L(U)=1$ is attained in a single update.
 
 \medskip
@@ -279,6 +290,7 @@ Organize your answer into three sections.
 
 2. **Transfer notes (invariant-product setting).**
    Transfer the above conclusion in the following setting. Let $H$ be a projector, $\psi_0$ a rank-one projector. For each $k$, let $V_k$ be any finite product of factors $e^{i\theta H}$ and $e^{i\theta\psi_0}$, set $U_{k+1}:=V_kU_k$ with $U_0=I$, and $\psi_k:=U_k\psi_0U_k^\dagger$. Define
+
    $$
      q_k:=\langle\psi_k|H|\psi_k\rangle\in[0,1],\quad
      \tau_k:=\sqrt{q_k(1-q_k)}\in\Bigl[0,\tfrac12\Bigr],\quad
@@ -307,19 +319,24 @@ properties are given, but the concrete product form is not.
 **Setting.**
 Let $H=H^\dagger=H^2$ be a projector and let $\psi_0$ be a rank-one projector.
 Define
+
 $$
   X_0 := [H,\psi_0], \qquad Y_0 := i[H,X_0], \qquad
   \mathcal W := \mathrm{span}_\mathbb{R}\{X_0,Y_0\}.
 $$
+
 For each $(x,y)\in\mathbb R^2$, we consider tangent targets
+
 $$
   Z = x X_0 + y Y_0 \in \mathcal W,
 $$
+
 and search for retractions $\gamma(t;x,y)$ on the unitary group with the
 following properties:
 - (P1) $\gamma(t;x,y)$ is a finite product of factors of the form $e^{i\theta H}$ or $e^{i\theta\psi_0}$, with real coefficients (possibly depending on $t,x,y$);
 - (P2) $\gamma(0;x,y)=I$ for all $(x,y)$;
 - (P3) the initial velocity matches the target: for any $Z=xX_0+yY_0\in\mathcal W$,
+
   $$
     \gamma'(0;x,y) = Z.
   $$
@@ -342,10 +359,12 @@ Design $\gamma(t;x,y)$ by property-constrained synthesis. Proceed as follows.
    - checks (P1) syntactically;
    - checks (P2) exactly at $t=0$;
    - checks (P3) numerically on the seed set $\mathcal S$ via the finite-difference test
+  
      $$
        \left\|\frac{\gamma(h;x,y)-I}{h}-(xX_0+yY_0)\right\|_F
        \le \varepsilon,
      $$
+
      and reports pass/fail outcomes for the test, including edge cases such as $(x,0)$ and $(0,y)$.
    The code must be executable, and you should run it to verify your construction.
 4. **Selection and refinement.**
@@ -427,16 +446,21 @@ You are a mathematical assistant with strong background in matrix manifolds and 
 
 **Setting.**  
 Work on the unitary group
+
 $$
     \mathrm{U}(N) = \{ U \in \mathbb{C}^{N \times N} : U^\ast U = I \},
 $$
+
 equipped with the canonical Riemannian metric induced by the Frobenius inner product. Let $\|\cdot\|$ denote the Frobenius norm, and $T_x\mathrm{U}(N)$ the tangent space at $x \in \mathrm{U}(N)$.
 
 We use the following length-5 product retraction (satisfying (P1)-(P3)):
+
 $$
   \gamma(t;x,y)= e^{i a_1 H}\, e^{i t b_1 \psi_0}\, e^{i (a_2-a_1) H}\, e^{i t b_2 \psi_0}\, e^{-i a_2 H},
 $$
+
 with real parameters $(a_1,a_2,b_1,b_2)$ determined by real scalars $(x,y)$ via
+
 $$
     A := \mathrm{atan2} (y, x), \quad
     R := \sqrt{x^2+y^2},\quad
@@ -445,14 +469,18 @@ $$
     b_1 = -\frac{R}{2}, \quad
     b_2 = \frac{R}{2}.
 $$
+
 Here $H$ and $\psi_0$ are fixed Hermitian matrices, and $(x,y)$ are scalar coefficients associated with the tangent vector $\eta$ (you may assume a reasonable linear relation). The retraction at $U \in \mathrm{U}(N)$ in direction $\eta \in T_U\mathrm{U}(N)$ is defined by
+
 $$
     \mathrm{Retr}_U(\eta) := \gamma(1;x_\eta,y_\eta)
 $$
+
 for the corresponding scalars $(x_\eta,y_\eta)$.
 
 **Goal.**  
 Find sharp global constants $\alpha$ and $\beta$ (ideally optimal, or close to optimal) such that, for all $U \in \mathrm{U}(N)$ and all tangent vectors $\eta \in T_U\mathrm{U}(N)$ in a suitable step-size range,
+
 $$
 \begin{aligned}
 \|\mathrm{Retr}_U(\eta) - U\| &\le \alpha \|\eta\|, \\
@@ -483,9 +511,11 @@ It is enough to clearly follow the order “propose constants $\rightarrow$ perf
 You are an expert in both quantum algorithms and mathematical optimization.
 
 We are analyzing the convergence of a Riemannian gradient descent algorithm with retractions on $\mathrm{U}(N)$. The objective function is:
+
 $$
  f(U) = \mathrm{Tr}(H U \psi_0 U^\dagger)
 $$
+
 where $H$ and $\psi_0$ are Hermitian matrices. The manifold is equipped with the canonical metric induced by the Frobenius inner product.
 
 **Current Baseline Result**
@@ -493,16 +523,18 @@ We have successfully established a "worst-case" complexity bound based on the st
 
 **Theorem**  
 Suppose we run with the 5-factor retraction $\mathrm{R}_U$ defined by
+
 $$
   \mathrm{R}^{(5)}_U (\eta): =e^{i a_1 H} e^{i b_1 \psi_0} e^{i\left (a_2-a_1\right) H} e^{i b_2 \psi_0} e^{-i a_2 H} \, U,
 $$
+
 and choose a fixed step size $t_k= 1 / L_{\mathrm{Rie}}$, where  
 $L_{\mathrm{Rie}}  =  2 + \frac{N}{\sqrt{2M\,(N-M)}} \in O\left(\sqrt{\frac{N}{M}}\right)$.  
 Then, for any $\varepsilon0$,
+
 $$
  T \geq \left\lceil\frac{2L_{\mathrm{Rie}}}{\varepsilon^2} \right\rceil \quad \Longrightarrow \quad \min _{0 \leq k \leq T-1}\left\|\mathrm{grad} f\left (U_k\right)\right\| \leq \varepsilon.
 $$
-
 
 **Request for Deeper Theoretical Analysis**
 The result above gives a sublinear rate ($O(\varepsilon^{-2})$), which applies to generic smooth non-convex functions. However, our objective function $f(U)$ has a very specific algebraic structure (a linear trace function on the unitary group).
